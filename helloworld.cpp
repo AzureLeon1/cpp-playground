@@ -26,6 +26,7 @@ int main()
     cout << endl;
 
     // test input
+    cout << "Input a int number: ";
     int n;
     cin >> n;
     cout << n << endl;
