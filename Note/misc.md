@@ -80,17 +80,32 @@ c++ 中 string 的 length() 和 size() 是完全一样的，但是与 C 中 stri
 
 ---
 
-**memset()**
+**填充：memset()、fill()**
 
 注意参数的顺序
 
-头文件：`<string>`
+memset()的头文件：`<cstring>`
 
-虽然头文件是string，但是memset()不仅可以用于string，还可以用于其他数据结构，如数组
+虽然头文件是cstring，但是memset()不仅可以用于char[]，还可以用于其他数据结构。
+
+但是如果填充其他数据结构如int数组，最好用0填充，因为memset是按一个字节为单位填充的，而int有四个字节，所以是填充了四次，如果填充的不是0，填充后的值是不正确的。
+
+总而言之，memset()是一种填充内存的手段，它以一个字节为单位填充成所给的字符，并不关心要填充的数据结构具体是什么。如果要填充的对象不是char[]，最好都用0进行填充。
+
+int数组最好用fill函数进行填充，fill需要的参数与memset不同。
 
 ```c++
-char map[80][80];    
-memset(map, '*', sizeof(map));
+// 用 memset 填充 char[]
+char str[80];
+memset(str, '@', sizeof(str));
+
+// 用 memset 填充 int[] 只能填充0
+int arr[80];
+memset(arr, 0, sizeof(arr));
+
+// 用 fill 填充 int[] 可以填充任意整数值
+int arr2[80];
+fill(arr2, arr2+80, 7);
 ```
 
 ---
