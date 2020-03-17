@@ -17,3 +17,24 @@
     - xt21 http://t.cn/E9lOOZQ 北大 与7无关的数
     - xt22 http://t.cn/E9ldhru 哈工 百鸡问题
     - xt23 http://t.cn/E9jqijR 上交 Old Bill
+- 模拟
+    - 图形排版
+        - lt24 清华 输出梯形
+        - lt25 叠筐
+        - xt24 http://t.cn/E9jcaVb 北大 Repeater
+        - xt25 http://t.cn/E9jizni 浙大 Hello World for U
+    - 日期问题
+        - lt26 http://t.cn/E9jXK5A 清华 今年的第几天？
+        - lt27 http://t.cn/E9YP2a8 华科 打印日期
+        - lt28 http://t.cn/E9Yw0Cr 北理工 日期累加
+        - xt26 http://t.cn/E9Yz0LE 上交 日期差值
+        - xt27 http://t.cn/E9YZLbi 上交 Day of Week
+        - xt28 http://t.cn/E9RJUp4 北理工 日期类
+    - 其他模拟
+        - lt29 http://t.cn/E9ufYo5 清华 剩下的树
+        - lt210 http://t.cn/E9ulcIc 清华 手机键盘
+        - lt211 http://t.cn/E937wDs 浙大 xxx定律
+        - xt29 http://t.cn/E9rDPSq 浙大 Grading
+        - xt210 http://t.cn/E9dvHs4 上交 路径打印
+        - xt211 http://t.cn/E9dhoRA 北大 堕落的蚂蚁
+
