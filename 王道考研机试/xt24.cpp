@@ -53,7 +53,7 @@ int main (){
         getchar();  // 吸收换行符
         
         for (int i = 0; i < n; i++){
-            cin.getline(base[i], n+1);
+            cin.getline(base[i], n+1);    // 注意是n+1，最后一个字符是'\0'
             // cout << base[i] << endl;
         }
 
