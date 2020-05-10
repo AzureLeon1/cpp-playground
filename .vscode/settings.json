@@ -4,6 +4,9 @@
         "iostream": "cpp",
         "algorithm": "cpp",
         "iosfwd": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "random": "cpp",
+        "queue": "cpp",
+        "unordered_set": "cpp"
     }
 }
