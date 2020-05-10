@@ -35,6 +35,23 @@
         - lt210 http://t.cn/E9ulcIc 清华 手机键盘
         - lt211 http://t.cn/E937wDs 浙大 xxx定律
         - xt29 http://t.cn/E9rDPSq 浙大 Grading
-        - xt210 http://t.cn/E9dvHs4 上交 路径打印
-        - xt211 http://t.cn/E9dhoRA 北大 堕落的蚂蚁
+        - xt210 http://t.cn/E9dvHs4 上交 路径打印 TODO:
+        - xt211 http://t.cn/E9dhoRA 北大 堕落的蚂蚁 
+
+## 排序与查找
+
+- 排序
+    - lt3-1 排序
+    - lt3-2 成绩排序
+    - lt3-3 成绩排序
+    - xt3-1 特殊排序
+    - xt3-2 整数奇偶排序
+    - xt3-3 小白鼠排队
+    - xt3-4 奥运排序问题
+- 查找
+    - lt3-4 找x（线性查找）
+    - lt3-5 查找（二分查找）
+    - xt3-5 找最小数
+    - xt3-6 打印极值点坐标
+    - xt3-7 找位置
 

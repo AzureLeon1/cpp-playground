@@ -187,3 +187,30 @@ https://blog.csdn.net/JIEJINQUANIL/article/details/50802902
 
 ---
 
+**stl容器的erase方法**
+
+vector不要用循环来erase。对于vector来说，每次erase之后，iterator会自动指向下一个元素。
+vector直接传两个参数，起点索引和终点索引来erase。
+
+---
+
+**map与unordered_map**
+
+unordered_map比map要快。
+map基于红黑树实现，unordered_map基于哈希表。
+
+---
+
+**树**
+
+TODO:
+map
+自定义
+```c++
+struct tree {
+    tree* _parent;
+    tree* _sibling;
+    tree* _child;
+    ...
+}
+```

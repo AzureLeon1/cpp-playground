@@ -1,40 +1,32 @@
-#include <map>
-#include <vector>
+#include <unordered_map>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        map<char, bool> mapper;
+        unordered_map<char, int> mapper;
         int res = 0;
-        vector<char> sliding_window;
+        int window_start_index = 0;
 
         int s_length =  s.length();
-        for (size_t i = 0; i < s_length; i++)
+        for (int i = 0; i < s_length; i++)
         {
-            if ( mapper[s[i]] ) {
-                // 已经出现过了，则删除
-                const vector<char>::iterator it = find(sliding_window.begin(), sliding_window.end(), s[i]);
-                vector<char>::iterator temp;
-                for (temp = sliding_window.begin(); temp <= it; temp++) {
-                    mapper[*temp] = false; 
-                }
-
-                sliding_window.erase(sliding_window.begin(), it+1);
-                sliding_window.push_back(s[i]);
+            if ( mapper.find(s[i])!=mapper.end() && mapper[s[i]]>=window_start_index ) {
+                // 已在当前滑窗内，则更新map
+                window_start_index = mapper[s[i]] + 1;
+                mapper[s[i]] = i;
                 
             }
             else {
                 // 新字符
-                sliding_window.push_back(s[i]);
-                if (sliding_window.size() > res) {
-                    res = sliding_window.size();
+                mapper[s[i]] = i;
+                int cur_len = i - window_start_index + 1;
+                if (cur_len > res) {
+                    res = cur_len;
                 }
             }
-            mapper[s[i]] = true;
         }
         return res;
     }
