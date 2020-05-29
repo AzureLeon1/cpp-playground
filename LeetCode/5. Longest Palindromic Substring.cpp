@@ -47,8 +47,12 @@ class Solution {
 public:
     bool dp[1000][1000];
     string longestPalindrome(string s) {
+        if (s.length() == 0) {
+            return "";
+        }
+
         int max_len = 1;
-        string result;
+        string result = s.substr(0, 1);
 
         int len = s.length();
         for (int i = 0; i < len; i++) {
@@ -57,6 +61,8 @@ public:
                 if (s[i]==s[i+1]) {
                     dp[i][i+1] =  true;
                     max_len = 2;
+                    result = s.substr(i, 2);
+
                 }
                 else {
                     dp[i][i+1] = false;

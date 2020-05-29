@@ -214,3 +214,18 @@ struct tree {
     ...
 }
 ```
+
+---
+
+**精度问题**
+
+cout输出比较大的整数是，会自动变成科学计数法如1e6。如果要保持格式，应该写清楚
+
+```c++
+#include <iomanip>
+cout << setprecision (1); 
+cout.setf(ios::fixed,ios::floatfield);
+```
+
+---
+
