@@ -200,6 +200,8 @@ https://blog.csdn.net/JIEJINQUANIL/article/details/50802902
 
 读取整行时，用 `getline(cin, str);`，需要 include 两个头文件：`<iostream>`和`<string>`
 
+使用getline可能需要先用getchar()吸收换行符
+
 ---
 
 **stl容器的erase方法**
