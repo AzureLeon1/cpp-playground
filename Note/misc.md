@@ -24,11 +24,24 @@ INT_MAX
 
 **翻转int**
 
+两个问题：
+
+1. 正负
+
+    这段代码完美处理了正负的问题，不需要特别考虑
+
+2. 溢出
+
+    有可能还要考虑翻转后会溢出的问题
+
 ```c++
 int reverse(int x) {
     int result = 0;
     int last;         // 当前x的最低位
     while (x != 0) {
+        if(result > INT_MAX / 10) return 0;        // 这两句判断溢出是可选的，根据实际情况判断是否需要
+        if(result < INT_MIN / 10) return 0;  
+      
         last = x % 10;
         result = result * 10 + last;
         x = x / 10;
@@ -177,13 +190,15 @@ cin>>n的返回值要更复杂一点：cin>>n返回的是一个cin对象，当�
 
 https://blog.csdn.net/JIEJINQUANIL/article/details/50802902
 
-读取整行时，尽量用cin.getline()，不要用gets()，gets()不安全
+~~读取整行时，尽量用cin.getline()，不要用gets()，gets()不安全~~
 
-使用cin.getline可能需要先用getchar()吸收换行符
+~~使用cin.getline可能需要先用getchar()吸收换行符~~
 
-但是注意cin.getline的第二个参数，表示接收字符的个数，最后一个是'\n'，实际上只接受n-1个字符
+~~但是注意cin.getline的第二个参数，表示接收字符的个数，最后一个是'\n'，实际上只接受n-1个字符~~
 
-开辟char[]的时候多开一个位置，存放'\0'
+~~开辟char[]的时候多开一个位置，存放'\0'~~
+
+读取整行时，用 `getline(cin, str);`，需要 include 两个头文件：`<iostream>`和`<string>`
 
 ---
 
@@ -219,13 +234,42 @@ struct tree {
 
 **精度问题**
 
-cout输出比较大的整数是，会自动变成科学计数法如1e6。如果要保持格式，应该写清楚
+cout输出比较大的整数时，会自动变成科学计数法如1e6。如果要保持格式，应该写清楚
 
 ```c++
 #include <iomanip>
 cout << setprecision (1); 
 cout.setf(ios::fixed,ios::floatfield);
 ```
+
+---
+
+---
+
+**int 与 string 转换**
+
+int 转 string
+
+- `string s = to_string(a)`
+- `string s = itoa(a)`(非C/C++标准，移植性不好)
+
+string 转 int
+
+- `int a = atoi(s.c_str())`atoi接受const char *类型的参数，所以要先把string转成c格式的字符串
+
+---
+
+**i++ 与 ++i**
+
+++i 是左值，理论上效率比 i++ 高一点。但实际上效率区别不明显，而且实际还要取决于编译器
+
+---
+
+**负数取余的结果是负数**
+
+负数取余最后是负数
+
+比如 (-3) % 10 等于 -3，不是7
 
 ---
 

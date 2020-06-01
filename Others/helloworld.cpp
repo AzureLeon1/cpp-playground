@@ -41,6 +41,9 @@ int main()
     int n;
     cin >> n;
     cout << n << endl;
+
+    // test operator %
+    cout << (-3) % 10 << endl;
     
     return 0;
 }

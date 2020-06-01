@@ -35,7 +35,7 @@
         - lt210 http://t.cn/E9ulcIc 清华 手机键盘
         - lt211 http://t.cn/E937wDs 浙大 xxx定律
         - xt29 http://t.cn/E9rDPSq 浙大 Grading
-        - xt210 http://t.cn/E9dvHs4 上交 路径打印 TODO:
+        - xt210 http://t.cn/E9dvHs4 上交 路径打印
         - xt211 http://t.cn/E9dhoRA 北大 堕落的蚂蚁 
 
 ## 排序与查找

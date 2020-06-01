@@ -5,6 +5,17 @@
 
 using namespace std;
 
+int reverse_int(int x) {
+    int result = 0;
+    int last;         // 当前x的最低位
+    while (x != 0) {
+        last = x % 10;
+        result = result * 10 + last;
+        x = x / 10;
+    }
+    return result;
+}
+
 int main () {
 
     // 翻转字符串
@@ -22,7 +33,10 @@ int main () {
         cout << i << " ";
     }
     cout << endl;
-    
+
+
+    // 翻转int
+    cout << reverse_int(54321) << endl << reverse_int(-54321) << endl;
 
     return 0;
 }
