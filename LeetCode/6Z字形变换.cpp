@@ -1,3 +1,5 @@
+#include<string>
+using namespace std;
 // 法一：在内存中生成矩阵然后输出
 // 法二：找规律，每行要输出的元素跟当前的行数之间存在关系
 

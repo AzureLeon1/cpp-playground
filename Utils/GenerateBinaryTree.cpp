@@ -34,9 +34,9 @@ void inorderPrint(TreeNode* root) {
 
 int main() {
     // null 要用 -1 表示
-    vector<int> data {1, 3, -1, -1, 2};
+    // vector<int> data {1, 3, -1, -1, 2};
 
-    TreeNode* root = generateBTree(data, 0);
+    // TreeNode* root = generateBTree(data, 0);
 
     return 0;
 }
