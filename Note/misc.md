@@ -255,7 +255,7 @@ cout.setf(ios::fixed,ios::floatfield);
 int 转 string
 
 - `string s = to_string(a)`
-- `string s = itoa(a)`(非C/C++标准，移植性不好)
+- ~~`string s = itoa(a)`(非C/C++标准，移植性不好)~~
 
 string 转 int
 
