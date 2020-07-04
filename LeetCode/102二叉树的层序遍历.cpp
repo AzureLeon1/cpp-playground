@@ -1,3 +1,6 @@
+// 该题的要点在于：需要知道每个节点属于哪一层
+// 有两种方法：1. 按层细分的BFS 2. DFS
+
 #include<queue>
 #include<vector>
 

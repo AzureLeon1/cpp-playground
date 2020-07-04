@@ -108,6 +108,8 @@ memset()的头文件：`<cstring>`
 int数组最好用fill函数进行填充，fill需要的参数与memset不同。
 
 ```c++
+memset()要include头文件 <cstring>，因为本身就是给cstring初始化用的函数
+
 // 用 memset 填充 char[]
 char str[80];
 memset(str, '@', sizeof(str));
@@ -274,4 +276,66 @@ string 转 int
 比如 (-3) % 10 等于 -3，不是7
 
 ---
+
+**树的BFS**
+
+树的BFS有两个模板，用于不同的情况：
+
+1. 如果不需要确定当前遍历到了哪一层，BFS模板如下。
+
+    ```
+    while queue 不空：
+        cur = queue.pop()
+        for 节点 in cur的所有相邻节点：
+            if 该节点有效且未访问过：
+                queue.push(该节点)
+    ```
+
+2. 如果要确定当前遍历到了哪一层，BFS模板如下。
+    这里增加了level表示当前遍历到二叉树中的哪一层了，也可以理解为在一个图中，现在已经走了多少步了。size表示在当前遍历层有多少个元素，也就是队列中的元素数，我们把这些元素一次性遍历完，即把当前层的所有元素都向外走了一步。
+
+    ```
+    level = 0
+    while queue 不空：
+        size = queue.size()
+        while (size --) {
+            cur = queue.pop()
+            for 节点 in cur的所有相邻节点：
+                if 该节点有效且未被访问过：
+                    queue.push(该节点)
+        }
+        level ++;
+    ```
+
+总结：区别在于，对于场景2，遍历的过程不是一个while循环，而是要按层再分，每层的循环的次数用queue.size()得到
+
+---
+
+**构造整数时判断是否越界**
+
+例题：
+
+- LeetCode 8：my atoi
+- LeetCode 7：整数翻转
+
+方法一：用long long计算，然后取max or min
+
+```c++
+if (sign==1)
+    res = min((long long)INT_MAX, res * 10 + sign * (long long)cur_digit);
+if (sign==-1)
+    res = max((long long)INT_MIN, res * 10 + sign * (long long)cur_digit);
+
+if (res==INT_MAX || res==INT_MIN)
+    return res;
+```
+
+方法二：用int计算，就是把 res*10+cur_digit>INT_MAX 或者 res\*1-cur_digit<INT_MIN转换一下形式
+
+```c++
+if (res > (INT_MAX - cur_digit)/10)
+    return INT_MAX;
+else if (res < (INT_MIN + cur_digit)/10) 
+    return INT_MIN;
+```
 
