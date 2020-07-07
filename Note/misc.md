@@ -339,3 +339,67 @@ else if (res < (INT_MIN + cur_digit)/10)
     return INT_MIN;
 ```
 
+---
+
+**C++中的堆与优先级队列**
+
+http://c.biancheng.net/view/481.html
+
+priority_queue的底层实现是堆
+
+prioity_queue的优势： priority_queue 可以提供堆没有的优势，它可以自动保持元素的顺序；但我们不能打乱 priority_queue 的有序状态，因为除了第一个元素，我们无法直接访问它的其他元素。如果需要的是一个优先级队列，这一点非常有用。
+
+堆的优势：从另一方面来说，使用 make_heap() 创建的堆可以提供一些 priority_queue 没有的优势：
+
+1. 可以访问堆中的任意元素，而不限于最大的元素，因为元素被存储在一个容器中，就像是我们自己的 vector。这也提供了偶然破坏元素顺序的可能，但是总可以调用 make_heap() 来还原堆。
+2. 可以在任何提供随机访问迭代器的序列容器中创建堆。这些序列容器包括普通数组、string 对象、自定义容器。这意味着无论什么时候需要，都可以用这些序列容器的元素创建堆，必要时，可以反复创建。甚至还可以为元素的子集创建堆。
+
+总结：区别有两点：1. 是否允许当前的有序状态被破坏 2. 是否允许随机访问非队首/堆顶的元素
+
+---
+
+**优先级队列**
+
+> 注意：需要自己实现cmp，其中大于号对应最小优先级队列（最小堆）
+>
+> 另外，cmp需要是一个struct，然后重载()运算符，不能直接创建一个cmp()函数
+
+```c++
+#include<queue>
+using namespace std;
+
+struct Ele {
+    int x;
+    int y;
+    int val;
+    Ele () {}
+    Ele(int x, int y, int val) : x(x), y(y), val(val) {}
+};
+
+struct cmp
+{
+    bool operator() (Ele& e1, Ele& e2) {
+        return e1.val > e2.val;
+    }
+};
+
+int main() {
+  //...
+  priority_queue<Ele, vector<Ele>, cmp> pq;
+}
+```
+
+---
+
+**struct 与 class**
+
+C++ 中保留了C语言的 struct 关键字，并且加以扩充。在C语言中，struct 只能包含成员变量，不能包含成员函数。而在C++中，struct 类似于 class，既可以包含成员变量，又可以包含成员函数。
+
+C++中的 struct 和 class 基本是通用的，唯有几个细节不同：
+
+- 使用 class 时，类中的成员默认都是 private 属性的；而使用 struct 时，结构体中的成员默认都是 public 属性的。
+- class 继承默认是 private 继承，而 struct 继承默认是 public 继承。
+- class 可以使用模板，而 struct 不能。
+
+---
+
