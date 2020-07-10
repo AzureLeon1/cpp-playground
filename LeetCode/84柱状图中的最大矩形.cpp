@@ -31,7 +31,7 @@ public:
                 st.push(i);        // push到栈中的是下标i
             else {
                 int temp_res = 0;
-                while (!st.empty() && heights[st.top()]>=heights[i]) {
+                while (!st.empty() && heights[st.top()]>heights[i]) {
                     int temp_index = st.top();
                     st.pop();
                     if (st.empty())                    // 如果是空的，说明heights[i]左边所有元素都比它小
