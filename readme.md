@@ -1,4 +1,4 @@
-# C++ Problem
+# C++ Practice
 ## VSCode Configuration
 Mac VsCode C++ Development Environment Configuration
 - `c_cpp_properties.json`: c/c++ configuration
