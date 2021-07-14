@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 
 using namespace std;
 
@@ -33,5 +34,16 @@ int main() {
 
     cout << a[1] << endl;
     cout << b[1] << endl;
+
+    sort(a.begin(), a.end(), less<int>());  // 第三个参数默认是 less<int>()
+    for (auto& e : a) {
+        cout << e << " ";
+    }
+    cout << endl;
+
+    sort(a.begin(), a.end(), greater<int>());
+    for (auto& e : a) {
+        cout << e << " ";
+    }
     return 0;
 }
